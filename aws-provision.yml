@@ -8,10 +8,10 @@
     vars:
       instance_type: t2.micro
       security_group: pallage-security-group
-      image: ami-crunchify231di
+      image: ami-0747bdcabd34c712a
       keypair: pallage_keypair
-      region: us-east-2 # Change the Region
-      count: 1
+      region: us-east-1
+      count: 2
  
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
