@@ -12,7 +12,7 @@
       keypair: pallage-wizard-1
       region: us-east-1 
       count: 2
-	
+
     tasks:
       - name: Create a new security group
         local_action: 
