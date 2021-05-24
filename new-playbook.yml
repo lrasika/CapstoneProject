@@ -4,8 +4,7 @@
     connection: local
     gather_facts: False
     tags: provisioning
-	
-	#parameters
+
     vars:
       instance_type: t2.micro
       security_group: pallage-security-group
@@ -14,8 +13,6 @@
       region: us-east-1 
       count: 2
 	
-	
-	#Create new security goup
     tasks:
       - name: Create a new security group
         local_action: 
