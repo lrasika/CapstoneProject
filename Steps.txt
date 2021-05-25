@@ -43,7 +43,12 @@ Here are the steps to follow
 	Consider one ec2 instance as node1 and other as node2
 2. Install docker in both nodes (ec2 instanaces)
 	sudo apt-get update
-	sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-	agent     software-properties-common
+	sudo apt-get install \
+    		apt-transport-https \
+    		ca-certificates \
+    		curl \
+    		gnupg-agent \
+    		software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo apt install docker.io
 	sudo apt install docker-compose
