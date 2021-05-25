@@ -4,33 +4,15 @@ Jenkins setup on Ubuntu
 
 
 ubuntu@ip-172-31-29-135:~$ history
-      sudo yum update –y
+sudo yum update –y
+    
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 
-      wget -q -O — https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+deb https://pkg.jenkins.io/debian binary/
 
-      sudo apt-get install openjdk-8-jdk
-
-      sudo apt-get install openjdk-11-jdk
-
-      wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-
-      sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-
-      sudo apt-get update
-
-      sudo apt-get install jenkins
-
-      sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-
-      sudo apt-get install jenkins
-
-      wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-
-      sudo apt-get update
-
-      sudo apt-get install jenkins
-
-      cat /var/lib/jenkins/secrets/initialAdminPassword
+sudo apt-get update
+sudo apt-get install jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
       
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
@@ -128,4 +110,37 @@ http://ec2-54-147-181-39.compute-1.amazonaws.com:8081/home
 		docker push ec2-54-147-181-39.compute-1.amazonaws.com:5000/lalith:v1
 
 	docker rmi <image> to remove it locally
+
+
+Docker Registy automatically
+ docker run -d \
+  -p 5000:5000 \
+  --restart=always \
+  --name registry \
+  registry:2
+
+customise port
+docker run -d \
+  -p 5001:5000 \
+  --name registry-test \
+  registry:2
+
+To customize storange
+docker run -d \
+  -p 5000:5000 \
+  --restart=always \
+  --name registry \
+  -v /mnt/registry:/var/lib/registry \
+  registry:2
+
+
+
+Run an externally-accessible registry
+
+Run Locally
+
+man install and mvm test
+
+publish the results
+
 
